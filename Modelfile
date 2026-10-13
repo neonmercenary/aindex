@@ -1,0 +1,12 @@
+FROM ~/llama.cpp/models/gemma-4-E4B-it-Q4_K_M.gguf
+
+# Adjust parameter based on your system specs.
+PARAMETER num_ctx 10240     
+PARAMETER num_batch 512
+
+# We want concise data from the documents with less hallucinations, so tweak based on model:
+PARAMETER temperature 0.3
+PARAMETER top_k 30
+
+# Give explicit intrustions, possible prompt guardrails etc.
+SYSTEM You are a senior research assistant.

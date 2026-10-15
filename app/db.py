@@ -23,7 +23,7 @@ def init_db():
     conn = get_db_connection()
     cursor = conn.cursor()
     
-    # 1. Relational table for storing text content and page numbers
+    # Relational table for storing text content and page numbers
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS chunks (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -33,7 +33,7 @@ def init_db():
         )
     """)
     
-    # 2. Virtual table for vector similarity search (assuming 384 dimensions for all-MiniLM-L6-v2)
+    # Virtual Table for vector similarity search (assuming 384 dimensions for all-MiniLM-L6-v2)
     cursor.execute("""
         CREATE VIRTUAL TABLE IF NOT EXISTS vec_chunks USING vec0(
             chunk_id INTEGER,

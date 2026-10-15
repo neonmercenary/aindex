@@ -1,8 +1,9 @@
 import sqlite3
 import sqlite_vec
 import struct
+import os
 
-DB_PATH = "rag_database.db"
+DB_PATH = os.getenv("DB_PATH", "rag_database.db")
 
 def get_db_connection():
     conn = sqlite3.connect(DB_PATH)
